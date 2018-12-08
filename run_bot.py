@@ -10,10 +10,12 @@ def write_msg(user_id, text):
 
 
 vk_bot = vk_api.VkApi(token=TOKEN)
-long_poll = vk_bot.method('messages.getLongPollServer', {'need_pts': 1, 'Ip_version': 3})
+long_poll = vk_bot.method('messages.getLongPollServer', {'need_pts': 1, 'lp_version': 3})
 server, key, ts = long_poll['key'], long_poll['ts']
 print("готов к работе")
 # +str(long_poll)
+
+volue = 'переменная для проверки git'
 
 while True:
     long_poll = requests.get(
@@ -32,4 +34,3 @@ while True:
 
     # меняем ts для следующего запроса
     ts = long_poll['ts']
-
